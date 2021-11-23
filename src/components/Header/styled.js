@@ -1,19 +1,24 @@
 import styled from 'styled-components';
 
-export const Header = styled.div`
+export const Header = styled.header`
 
-    width:100%;
+    margin:auto;
+    width:inherit;
+    max-width:1440px;
     min-height:60px;
     position:fixed;
     top:0;
-    left:0;
     z-index:999;
+    padding-top:20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
 
-    #header-block{
-        width:80%;
+    .header--container{
         margin:auto;
-        display:flex;
-        flex-wrap:wrap;
+        width:100%;
+        max-width:1140px;
+        display:grid;
+        grid-template-columns:auto auto auto;
         justify-content:space-between;
         align-items:center;
     }
@@ -22,13 +27,6 @@ export const Header = styled.div`
         height:60px;
         display:flex;
         align-items:center;
-
-        #img{
-            width:121px;
-            height:60px;
-            line-height:60px;
-            background-color:transparent;
-        }
     }
 
     #business{
@@ -36,11 +34,13 @@ export const Header = styled.div`
         list-style:none;
         display:flex;
         align-items:center;
+        transition:all .4s;
 
         #arrow{
             position:relative;
             left:4px;
             top:3px;
+            fill:#FFF;
         }
 
 
@@ -49,24 +49,35 @@ export const Header = styled.div`
             display:inline-block;
             margin-right:40px;
             cursor:pointer;
+            color:#FFF;
           
             .dropdown--content{
                 display:none;
                 position:absolute;
                 background-color:#F9F9F9;
-                min-width:100px;
                 z-index:1;
+                transition:all .4s;
 
-                .dropdown--content_item{
-                    padding:10px 12px;
+                
+                ul, li{
+                    list-style:none;
+                }
 
-                    a{
-                        text-decoration:none;
-                        color:#000;
-                    }
-                    &:hover{
-                        background-color:#F1F1F1;
-                    }
+                ul{
+                    padding:0;
+                }
+
+                li{
+                    padding:10px;
+                }
+
+                li:hover{
+                    background-color:#F1F1F1;
+                }
+
+                a{
+                    text-decoration:none;
+                    color:#000;
                 }
 
             }
@@ -78,75 +89,91 @@ export const Header = styled.div`
 
     }
 
-
-    #signUp{
-        padding:10px;
+    #forYourCompany .dropdown--content{
+        width:150px;
     }
 
-    #signUp--btn{
-        font-size:15px;
-        text-align:center;
-        max-width:250px;
-        min-height:40px;
-        line-height:40px;
-        border-radius:50px;
-        cursor:pointer;
-        padding:5px;
+    #forYou .dropdown--content{
+        width:91px;
     }
 
-    .btn-black{
+    .black-btn{
         background-color:#000;
         color:#FFF;
 
         &:hover{
-            background-color:#E6E6E6;
-            color:#000;
+            background-color:#FDC027;
+            color:#FFF;
         }
     }
 
-    .btn-white{
+    .white-btn{
         background-color:#FFF;
         color:#000;
 
         &:hover{
-            background-color:#E6E6E6;
-            color:#000;
+            background-color:#FDC027;
+            color:#FFF;
         }
     }
 
-    @media (max-width:835px){
+    #menu-button{
+        display:none;
+    }
 
-        #business{
-            font-size:12px;
+    @media (max-width:1170px){
+        .header--container{
+            padding:0 20px;
         }
+    }
 
+    @media (max-width:800px){
         #signUp--btn{
-            font-size:12px;
-            padding:2px;
-        }
-    }
-
-    @media (max-width:700px){
-        #signUp{
             display:none;
         }
     }
 
-    @media (max-width:540px){
+    @media (max-width:600px){
 
-        #header-block{
-            flex-direction:column;
-            justify-content:center;
+        .header--container{
+            grid-template-columns:auto auto;
         }
 
         #logo{
-            flex:1;
             margin-bottom:5px;
         }
 
         #business{
-            flex:1;
-            margin-bottom:5px;
+            display:none;
+            position:absolute;
+            top:62px;
+            right:20px;
+            width:200px;
+            height:calc(100vh - 100px);
+            background-color:rgba(0, 0, 0, 0.9);
+            flex-direction:column;
+            align-items:start;
+            padding-left:20px;
+            border-radius:5px;
+            text-transform:uppercase;
+
+        }
+
+        #forYou{
+            margin:30px 0;
+        }
+
+        .btn{
+            display:none;
+        }
+
+        #menu-button{
+            width:30px;
+            height:30px;
+            position:absolute;
+            right:20px;
+            top:30px;
+            display:block;
         }
     }
 `;

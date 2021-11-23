@@ -1,23 +1,23 @@
 import React from 'react';
 import {Template} from './styled';
 import Header from '../Header'
-import Disclosure from '../Disclosure';
-import Tariffs from '../Tariffs';
-import Banner from '../BannerBottom';
+import Presentation from '../Presentation';
+import Services from '../Services';
+import Products from '../Products';
 
 const Container = () => {
     return(
         <Template>
-            <div className="top">
-                <Header />
-                <Disclosure />
-            </div>
-            <div className="quite">
-                <Tariffs />
-            </div>
-            <div className="low">
-                <Banner />
-            </div>
+            <Header />
+            <section className="section1">
+                <Presentation />
+            </section>
+            <section className="section2">
+                <Services />
+            </section>
+            <section className="section3">
+                <Products />
+            </section>
         </Template>
     )
 }
